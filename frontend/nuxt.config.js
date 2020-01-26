@@ -1,4 +1,4 @@
-export default {
+const config = {
   mode: 'universal',
   generate: {
     dir: '../public'
@@ -44,7 +44,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/proxy'
   ],
   /*
    ** Axios module configuration
@@ -61,3 +62,11 @@ export default {
     extend(config, ctx) { }
   }
 }
+
+if (process.env.NODE_ENV === 'development') {
+  config.proxy = {
+    '/api': 'http://localhost:3000'
+  }
+}
+
+export default config;
