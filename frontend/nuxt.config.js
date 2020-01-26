@@ -1,6 +1,6 @@
 export default {
   mode: 'universal',
-  geneerate: {
+  generate: {
     dir: '../public'
   },
   /*
