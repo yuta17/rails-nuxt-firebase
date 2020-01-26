@@ -51,7 +51,9 @@ const config = {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: '/'
+  },
   /*
    ** Build configuration
    */
@@ -63,6 +65,7 @@ const config = {
   }
 }
 
+console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
   config.proxy = {
     '/api': 'http://localhost:3000'

@@ -22,3 +22,11 @@
 /config/master.key
 
 vendor
+
+# Ignore generate files by nuxt
+public/.nojekyll
+public/200.html
+public/README.md
+public/_nuxt/
+public/index.html
+public/sw.js
