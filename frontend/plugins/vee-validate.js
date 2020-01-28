@@ -1,11 +1,12 @@
-import Vue from 'vue';
-import { extend, ValidationProvider } from "vee-validate";
-import { required } from "vee-validate/dist/rules";
+import Vue from 'vue'
+import { ValidationProvider, ValidationObserver, localize, extend } from 'vee-validate'
+import ja from 'vee-validate/dist/locale/ja.json'
+import { required, max, email } from 'vee-validate/dist/rules'
 
-// install the 'required' rule.
-extend("required", {
-  ...required,
-  message: "入力が必須の項目です。"
-});
+extend('required', required)
+extend('email', email)
+extend('max', max)
 
-Vue.component('ValidationProvider', ValidationProvider);
+Vue.component('ValidationProvider', ValidationProvider)
+Vue.component('ValidationObserver', ValidationObserver)
+localize('ja', ja)

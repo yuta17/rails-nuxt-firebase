@@ -57,8 +57,8 @@ const config = {
     FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
     FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,
     FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
-    FIREBASE_STORAGE_BUCKET: FIREBASE_STORAGE_BUCKET,
-    FIREBASE_MESSAGING_SENDER_ID: FIREBASE_MESSAGING_SENDER_ID,
+    FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
+    FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
     FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
     FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID
   },
@@ -74,7 +74,7 @@ const config = {
    */
   build: {
     transpile: [
-      'vee-valiidae/dist/rules'
+      'vee-validate/dist/rules'
     ],
     /*
      ** You can extend webpack config here
@@ -83,7 +83,6 @@ const config = {
   }
 }
 
-console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
   config.proxy = {
     '/api': 'http://localhost:3000'
