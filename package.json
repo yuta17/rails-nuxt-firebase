@@ -4,6 +4,6 @@
     "yarn": "1.6.0"
   },
   "scripts": {
-    "postinstall": "cd frontend && yarn install && yarn build"
+    "postinstall": "cd frontend && yarn install && yarn generate"
   }
 }
