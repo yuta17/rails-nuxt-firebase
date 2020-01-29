@@ -33,7 +33,7 @@ const config = {
   plugins: [
     '@/plugins/firebase',
     '@/plugins/vee-validate',
-    '@/plugins/persistedstate'
+    { src: '@/plugins/persistedstate', ssr: false }
   ],
   /*
    ** Nuxt.js dev-modules

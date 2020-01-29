@@ -1,29 +1,61 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        frontend
-      </h1>
-      <h2 class="subtitle">
-        My well-made Nuxt.js project
-      </h2>
-      <button @click="ping">Ping</button>
+    <div v-if="isAuthenticated">
+      {{ user.email }}でログイン中です<br />
+      <button v-on:click="logout">ログアウト</button><br />
+      <a href="/member-page">メンバーページへ</a>
+    </div>
+    <div v-else>
+      メール<br />
+      <input v-model="email" type="text" /><br />
+      パスワード<br />
+      <input v-model="password" type="password" /><br />
+      <button v-on:click="login">ログイン</button>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { mapActions, mapState, mapGetters } from 'vuex'
 
 export default {
-  components: {
-    Logo
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  computed: {
+    ...mapState(['user']),
+    ...mapGetters(['isAuthenticated'])
+  },
+  mounted() {
+    this.$fireApp.auth().onAuthStateChanged((user) => {
+      const { email, password } = user
+      this.setUser({ email, password })
+    })
   },
   methods: {
-    async ping() {
-      const res = await this.$axios.$get('/okcomputer/default.json')
-      console.log(res)
+    ...mapActions(['setUser']),
+    login() {
+      this.$fireApp
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then((user) => {})
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    logout() {
+      this.$fireApp
+        .auth()
+        .signOut()
+        .then(() => {
+          this.setUser(null)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     }
   }
 }
