@@ -20,7 +20,8 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "firebase": "^7.7.0",
     "nuxt": "^2.0.0",
-    "vee-validate": "^3.2.2"
+    "vee-validate": "^3.2.2",
+    "vuex-persistedstate": "^2.7.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
