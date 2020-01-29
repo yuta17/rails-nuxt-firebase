@@ -30,10 +30,7 @@ const config = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '@/plugins/firebase',
-    '@/plugins/vee-validate'
-  ],
+  plugins: ['@/plugins/firebase', '@/plugins/vee-validate'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -73,13 +70,11 @@ const config = {
    ** Build configuration
    */
   build: {
-    transpile: [
-      'vee-validate/dist/rules'
-    ],
+    transpile: ['vee-validate/dist/rules'],
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) { }
+    extend(config, ctx) {}
   }
 }
 
@@ -89,4 +84,4 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 
-export default config;
+export default config

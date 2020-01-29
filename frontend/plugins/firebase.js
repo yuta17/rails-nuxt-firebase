@@ -1,9 +1,9 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+import 'firebase/auth'
 
 export default (context, inject) => {
-  let fireApp;
+  let fireApp
 
   if (!firebase.apps.length) {
     fireApp = firebase.initializeApp({
@@ -17,8 +17,8 @@ export default (context, inject) => {
       measurementId: process.env.FIREBASE_MEASUREMENT_ID
     })
   } else {
-    fireApp = firebase.app();
+    fireApp = firebase.app()
   }
 
-  inject("fireApp", fireApp);
-};
+  inject('fireApp', fireApp)
+}
