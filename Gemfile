@@ -16,6 +16,15 @@ gem 'firebase-auth-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'annotate'
+  gem 'bullet'
+  gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'rspec-request_describer'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rubocop', require: false
+  gem 'shoulda-matchers'
 end
 
 group :development do
