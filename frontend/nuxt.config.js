@@ -31,6 +31,7 @@ const config = {
    ** Plugins to load before mounting the App
    */
   plugins: [
+    '@/plugins/axios',
     '@/plugins/firebase',
     '@/plugins/vee-validate',
     { src: '@/plugins/persistedstate', ssr: false }

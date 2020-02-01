@@ -10,7 +10,7 @@
       <input v-model="email" type="text" /><br />
       パスワード<br />
       <input v-model="password" type="password" /><br />
-      <button v-on:click="login">ログイン</button>
+      <button v-on:click="signup">ログイン</button>
     </div>
   </div>
 </template>
@@ -37,14 +37,17 @@ export default {
   },
   methods: {
     ...mapActions(['setUser']),
-    login() {
-      this.$fireApp
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then((user) => {})
-        .catch((error) => {
-          console.log(error)
-        })
+    async signup() {
+      try {
+        await this.$fireApp
+          .auth()
+          .createUserWithEmailAndPassword(this.email, this.password)
+        const token = await this.$fireApp.auth().currentUser.getIdToken(true)
+        localStorage.setItem('token', token)
+        await this.$axios.post('/api/auth/registrations/create')
+      } catch (error) {
+        console.log(error)
+      }
     },
     logout() {
       this.$fireApp
