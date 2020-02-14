@@ -26,7 +26,9 @@ const config = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    'normalize.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -79,7 +81,7 @@ const config = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) { }
   }
 }
 
